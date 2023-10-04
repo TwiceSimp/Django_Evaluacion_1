@@ -27,28 +27,27 @@ def usuario(request):
 def descripcion_producto(request, categoria, producto_titulo):
     if categoria == 'consolas':
         productos = [
-            {"titulo": "Playstation 5", "foto": "ps5.png", "precio": "$560.990", "descripcion": "Consola Playstation 5"},
-            {"titulo": "Nintendo Switch", "foto": "switch.png", "precio": "$320.990", "descripcion": "Consola Nintendo switch"},
-            {"titulo": "Xbox Series X", "foto": "xbox.png", "precio": "$360.990", "descripcion": "Consola Xbox Series X"}
+            {"titulo": "Playstation 5", "foto": "ps5.png", "precio": "$560.990", "descripcion": "Frecuencia variable de GPU hasta 2.23 GHz (10.3 TFLOPS). Memoria GDDR6 16 GB con ancho de banda de 448 GB/s. Unidad de almacenamiento SSD 825 GB. Ancho de banda de lectura 5.5 GB/s (datos puros) y 9 GB/s (datos comprimidos)."},
+            {"titulo": "Nintendo Switch", "foto": "switch.png", "precio": "$320.990", "descripcion": " ofrece colores brillantes y contrastes definidos, la consola Nintendo Switch incluye 64 GB de almacenamiento interno, una base con un puerto LAN para conexión por cable para jugar en el televisor, un soporte ajustable y amplio y audio mejorado."},
+            {"titulo": "Xbox Series X", "foto": "xbox.png", "precio": "$360.990", "descripcion": "CPU: CPU Zen 2 personaliza de 8 núcleos a 3,8 GHz (3,66 GHz con SMT)Tarjeta gráfica: GPU de 12 TERAFLOPS, 52 CU a 1,825 GHz con RDNA 2 personalizada.Memoria: GDDR6 de 16 GB.Almacenamiento interno: SSD NVME personalizado de 1 TB (ampliable),Resolución: 4K.Alto rango dinámico: HDR 8K."}                                                                                  
         ]
     elif categoria == 'computacion':
         productos = [
-            {"titulo": "Macbook", "foto": "mac.png", "precio": "$870.990", "descripcion": "Notebook MacBook Air M1"},
-            {"titulo": "Notebook Asus", "foto": "notebook.png", "precio": "$520.990", "descripcion": "Notebook Gamer Asus"},
-            {"titulo": "HP Pavillion", "foto": "hp.png", "precio": "$760.990", "descripcion": "Notebook Gamer HP Pavillion"}
+            {"titulo": "Macbook", "foto": "mac.png", "precio": "$870.990", "descripcion": "El MacBook Air M1 cuenta con un procesador Apple M1, GPU integrada, almacenamiento SSD y una pantalla Retina de alta resolución."},
+            {"titulo": "Notebook Asus", "foto": "notebook.png", "precio": "$520.990", "descripcion": "Los notebooks gamers Asus suelen tener potentes tarjetas gráficas NVIDIA/AMD, procesadores Intel/AMD de alto rendimiento, amplia RAM y almacenamiento SSD para un rendimiento gaming óptimo."},
+            {"titulo": "HP Pavillion", "foto": "hp.png", "precio": "$760.990", "descripcion": "La HP Pavilion generalmente cuenta con procesadores Intel o AMD, opciones de RAM y almacenamiento variadas, gráficos integrados o dedicados, y una pantalla de calidad."}
         ]
     elif categoria == 'telefonos':
         productos = [
-            {"titulo": "Iphone", "foto": "iphone.png", "precio": "$1.230.990", "descripcion": "Telefono Iphone 14 Pro Max"},
-            {"titulo": "Samsung", "foto": "samsung.png", "precio": "$870.990", "descripcion": "Telefono Samsung S23 Ultra"},
-            {"titulo": "Xiaomi", "foto": "xiaomi.png", "precio": "$680.990", "descripcion": "Telefono Xiaomi 13T"}
+            {"titulo": "Iphone", "foto": "iphone.png", "precio": "$1.230.990", "descripcion": "Smartphone con pantalla de 6.7, Apple A16 Bionic, 6GB RAM, opciones de almacenamiento de 128GB a 1TB, sin microSD, cámara triple de 48MP+12MP+12MP."},
+            {"titulo": "Samsung", "foto": "samsung.png", "precio": "$870.990", "descripcion": "Smartphone con cámaras traseras de 200 MP + 10 MP (telefoto) + 12 MP (ultra gran angular) + 10 MP (telefoto doble), cámara frontal de 12 MP. Ofrece 45 horas de conversación y 13.75 días en espera. Pantalla Dynamic AMOLED WQHD+ (New Edge) de 6.8 con resolución 2x3080 x 1400 píxeles."},
+            {"titulo": "Xiaomi", "foto": "xiaomi.png", "precio": "$680.990", "descripcion": "Dispositivo con sistema operativo Android 13 y MIUI 14, alimentado por un chipset MediaTek Dimensity 8200-Ultra. Equipado con un procesador Octa-core (1x Cortex-A78 3.1 GHz + 3x Cortex-A78 3.0 GHz + 4x Cortex-A55 2.0 GHz) fabricado en TSMC de 4nm, y una GPU Arm Mali-G610."}
         ]
 
-    # Buscamos el producto según el título
+
     producto = next((p for p in productos if p["titulo"].replace(" ", "-").lower() == producto_titulo), None)
 
     if not producto:
-        # Manejar el caso en que el producto no se encuentra
         return HttpResponseNotFound("Producto no encontrado")
 
     data = {"categoria": categoria, "producto": producto}

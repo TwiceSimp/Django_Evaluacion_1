@@ -16,13 +16,15 @@
             style="width: 100px;"> DJANGO SHOPING</div>
     <div class="alert alert-dark display-3">{{titulo}}</div>
 
-    {% for producto in productos %}
-    <div class="row">
-        <a href="{% url 'descripcion_producto' categoria producto.titulo|slugify %}" class="btn btn-success w-100 p-3">
-            <img src="{% static 'img/' %}{{ producto.foto }}" alt="" style="width: 100px;"><br>{{ producto.titulo }}
-        </a>
+    <div class="row justify-content-end">
+        {% for producto in productos %}
+        <div class="col-4 p-3 text-center">
+            <a href="{% url 'descripcion_producto' categoria producto.titulo|slugify %}" class="btn btn-success w-100 p-3">
+                <img src="{% static 'img/' %}{{ producto.foto }}" alt="" style="width: 100px;"><br>{{ producto.titulo }}
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
 
     <a href="/" class="btn btn-dark m-5"><i class="bi bi-arrow-left-short"></i>volver</a>
 
