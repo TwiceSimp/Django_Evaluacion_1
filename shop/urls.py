@@ -20,12 +20,10 @@ from shop_App import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.inicio),
+    path('', views.inicio),
     path('consolas/', views.consolas, name="consolas"),
     path('computacion/', views.computacion, name="computacion"),
     path('telefonos/', views.telefonos, name="telefonos"),
     path('usuario/', views.usuario, name="usuario"),
-    path('descripcion1/', views.productoUno, name="descripcion1"),
-    path('descripcion2/', views.productoDos, name="descripcion2"),
-    path('descripcion3/', views.productoTres, name="descripcion3"),
+    path('descripcion/<str:categoria>/<str:producto_titulo>/', views.descripcion_producto, name="descripcion_producto"),
 ]

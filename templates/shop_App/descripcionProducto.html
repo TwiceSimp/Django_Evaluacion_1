@@ -9,23 +9,20 @@
     <title>Descripcion del producto</title>
 </head>
 <body class="container mt-5">
-    <div class="alert alert-info display-1 text-center"><img src="{%static "img/twice.png" %}" alt="" style="width: 100px;"> DJANGO SHOPING</div>
-    <div class="alert alert-dark display-3">{{nombre}}</div>
+    <div class="alert alert-info display-1 text-center"><img src="{% static 'img/twice.png' %}" alt="" style="width: 100px;"> DJANGO SHOPPING</div>
+    <div class="alert alert-dark display-3">{{producto.titulo}}</div>
     <div class="row">
         <div class="col-auto">
-            <p><img src="{%static 'img/'%}{{foto}}" alt="" style="width: 300px;"></p>
+            <p><img src="{% static 'img/' %}{{producto.foto}}" alt="" style="width: 300px;"></p>
         </div>
         <div class="col">
-            <h1>Nombre {{titulo1}}</h1>
-            <img src="{%static 'img/'%}{{foto1}}" alt="" style="width: 300px;">
-            <h2>precio: {{precio1}}</h2>
-            <h3>descripcion: {{descripcion1}}</h3>
-            
-            
+            <h1>Nombre {{producto.titulo}}</h1>
+            <img src="{% static 'img/' %}{{producto.foto1}}" alt="" style="width: 300px;">
+            <h2>Precio: {{producto.precio}}</h2>
+            <h3>Descripción: {{producto.descripcion}}</h3>
         </div>
     </div>
     
-    
-    <a href="/" class="btn btn-dark m-5"><i class="bi bi-arrow-left-short"></i>volver</a>
+    <a href="/" class="btn btn-dark m-5"><i class="bi bi-arrow-left-short"></i>Volver</a>
 </body>
 </html>
